@@ -1,7 +1,45 @@
 @{
-    Layout="_ColumnsTwo";
-    ViewData["Title"] = "Desarrollo Linux";
+    ViewData["Title"] = "Your DigiCert certificate";
 }
 <h1>@ViewData["Title"]</h1>
-<p>Yeisson Miguel Lopez Baron</p>
+
+<p>Basic OV
+Encryption and authentication for a single domain, subject alternative names (SANs), or wildcard domains
+When you secure example.com, we also secure www.example.com for free
+Your DigiCert CertCentral account and management console</p
+
+<form role="form">
+    <div class="form-group"> <!-- State Button -->
+        <label for="state_id" class="control-label">1. Choose your multi-year plan</label>
+        <select class="form-control" id="multi">
+            <option value="one">1 year, $260.00</option>
+            <option value="two">2 years, $254.60</option>
+            <option value="three">3 years, $53.60</option>
+            <option value="four">4 years, $80.40</option>
+            <option value="five">5 years, $107.20</option>
+            <option value="six">6 years, $134.00</option>
+        </select>                    
+    </div>
+
+  <div class="form-group">
+    <label>2. Enter your website and server information</label>
+    <label for="server" class="control-label">Server app details for the host you install the certificate on</label>
+        <select class="form-control" id="server">
+            <option value="apa">Apache</option>
+            <option value="nginx">NGINX</option>
+            <option value="iss">Microsoft IIS 10</option>
+            <option value="tomcat">Tomcat</option>
+            <option value="other">Other/I don't know</option>
+        </select>   
+        <label for="email">Additional standard or wildcard URLs to secure with subject alternative names (SANs) (optional)
+            Separate SANs with commas or line breaks</label>
+        <textarea class="form-control" id="message" name="message" placeholder=" " rows="4"></textarea>    
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox"> Remember me</label>
+  </div>
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
 <button type="button" class="btn btn-primary">Secondary</button>
