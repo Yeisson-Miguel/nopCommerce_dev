@@ -9,11 +9,14 @@
 <p>Basic OV
 Encryption and authentication for a single domain, subject alternative names (SANs), or wildcard domains
 When you secure example.com, we also secure www.example.com for free
-Your DigiCert CertCentral account and management console</p
+Your DigiCert CertCentral account and management console</p>
+
+	
+<hr style="color: #0056b2;" />
 
 <form role="form">
     <div class="form-group"> <!-- State Button -->
-        <label for="state_id" class="control-label">1. Choose your multi-year plan</label>
+        <label for="state_id" style="font-size: 30px;" class="control-label">1. Choose your multi-year plan</label>
         <select class="form-control" id="multi">
             <option value="one">1 year, $260.00</option>
             <option value="two">2 years, $254.60</option>
@@ -24,8 +27,20 @@ Your DigiCert CertCentral account and management console</p
         </select>                    
     </div>
 
+  <hr style="color: #0056b2;" />
+
   <div class="form-group">
-    <label>2. Enter your website and server information</label>
+    <label style="font-size: 30px;">2. Enter your website and server information</label>
+    <br/>
+    <div>
+        <div class="wrapper text-center">
+            <div class="btn-group" style="margin: 0 auto; text-align: center; width: inherit; display: inline-block; " role="group" aria-label="Basic outlined example">
+                <button type="button" style="text-align: center;" class="btn btn-outline-primary">I don't have my CSR</button>
+                <button type="button" style="text-align: center;" class="btn btn-outline-primary">I have my CSR</button>
+            </div>
+        </div>
+    </div>
+    <br/>
     <label for="server" class="control-label">Server app details for the host you install the certificate on</label>
         <select class="form-control" id="server">
             <option value="apa">Apache</option>
