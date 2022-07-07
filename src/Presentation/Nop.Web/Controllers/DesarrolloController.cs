@@ -8,4 +8,14 @@ public partial class DesarrolloController: Controller
     {
         return View();
     }
+
+    public virtual IActionResult AddDetailsCertificate()
+    {
+        return View();
+    }
+
+    public virtual IActionResult CertificateVerification()
+    {
+        return View();
+    }
 }
