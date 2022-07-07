@@ -48,7 +48,7 @@
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMenuBefore, additionalData = Model })
 
     @*Comienza Desarrollo *@
-    <li><a class="nav-link text-dark" asp-area="" asp-controller="Desarrollo" asp-action="Desarrollo">Adquiere tu Certificado</a></li>
+    <li><a class="nav-link text-dark" asp-area="" asp-controller="Certificate" asp-action="ConfigureCertificate">Adquiere tu Certificado</a></li>
     @if (Model.DisplayHomepageMenuItem)
     {
         <li><a href="@Url.RouteUrl("Homepage")">@T("Homepage")</a></li>

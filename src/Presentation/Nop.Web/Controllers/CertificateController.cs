@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace aspnetapp.Controllers;
 
-public partial class DesarrolloController: Controller
+public partial class CertificateController: Controller
 {
-    public virtual IActionResult Desarrollo()
+    public virtual IActionResult ConfigureCertificate()
     {
         return View();
     }
