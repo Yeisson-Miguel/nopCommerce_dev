@@ -1,33 +1,22 @@
+@{
+    ViewData["Title"] = "Configura tu certificado";
+}
+<h1>@ViewData["Title"]</h1>
+
 <!DOCTYPE html>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
-    <div class="card text-center">
-        <div class="card-header">
-            <ul class="nav nav-tabs card-header-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Step 1</a>
-                    <footer class="blockquote-footer">Configure your certificate.</footer>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Step 2</a>
-                    <footer class="blockquote-footer">Add account and organization details.</footer>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Step 3</a>
-                    <footer class="blockquote-footer">Check out.</footer>
-                </li>
-            </ul>
-        </div>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <partial name="_CertificateTop"/>
         <div class="card-body">
             <h5 class="card-title">Your DigiCert certificate</h5>
             <p class="card-text">
                 Basic OV
-                Encryption and authentication for a single domain, subject alternative names (SANs), or wildcard                domains
+                Encryption and authentication for a single domain, subject alternative names (SANs), or wildcard domains
                 When you secure example.com, we also secure www.example.com for free
                 Your DigiCert CertCentral account and management console.
             </p>
@@ -93,6 +82,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="card">
                     <div class="card-header" id="headingTwo">
                         <h2 class="mb-0">
@@ -136,6 +126,5 @@
             </div>
             <a href="#" class="btn btn-primary">Continue</a>
         </div>
-    </div>
-</body>
+    </body>
 </html>
