@@ -4,4 +4,85 @@
 <h1>@ViewData["Title"]</h1>
 
 <partial name="_CertificateTop"/>
-<p>Yeisson Miguel Lopez Baron - Verificacion</p>
+
+<form action="">
+    <div class="form-group" style="margin-top: 30px;">
+        <h4 style="margin-bottom: 30px;">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">
+                    1. Ingrese su información de pago
+                </font>
+            </font>
+        </h4>
+    </div>
+
+    <div class="form-group" style="margin-top: 30px;">
+        <h5 style="margin-bottom: 10px;">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">
+                    <b style="margin-right: 80px;">Número de Tarjeta de Crédito</b>
+                    <img width="200" height="50" src="http://localhost:5000/Themes/DefaultClean/Content/images/metodo-pagos.png"/>
+                </font>
+            </font>
+        </h5>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-7">
+            <input type="text" class="form-control" id="numberCreditCard" aria-describedby="emailHelp" placeholder="0000-0000-0000-0000">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="month">Fecha de caducidad</label>
+            <select id="month" class="form-control">
+                <option selected>Mes...</option>
+                <option value="ENE">Enero</option>
+                <option value="FEB">Febrero</option>
+                <option value="MAR">Marzo</option>
+                <option value="ABR">Abril</option>
+                <option value="MAY">Mayo</option>
+                <option value="JUN">Junio</option>
+                <option value="JUL">Julio</option>
+                <option value="AGO">Agosto</option>
+                <option value="SEP">Septiembre</option>
+                <option value="OCT">Octubre</option>
+                <option value="NOV">Noviembre</option>
+                <option value="DIC">Diciembre</option>
+                
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="year">(MM-AAAA)</label>
+            <select id="year" class="form-control">
+                <option selected>Año...</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+            </select>
+        </div>
+        <div class="form-group col-md-3">
+            <label for="securityCode">Codigo de seguridad</label>
+            <input type="text" class="form-control" id="securityCode">
+        </div>
+    </div>
+    <hr class="solid">
+
+    <div class="form-group" style="margin-top: 30px;">
+        <h4 style="margin-bottom: 30px;">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">
+                    Elija si contacto de facturación
+                </font>
+            </font>
+        </h4>
+    </div>
+
+    <div>
+        <a type="button" class="btn btn-secondary" asp-area="" asp-controller="Certificate" asp-action="AddDetailsCertificate">Atras</a>
+        <a type="button" class="btn btn-primary">Realizar Pago</a>
+    </div>
+</form>

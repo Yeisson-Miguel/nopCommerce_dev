@@ -7,8 +7,6 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
         <partial name="_CertificateTop"/>
@@ -20,11 +18,19 @@
                 Cuando protege example.com, también protegemos www.example.com de forma gratuita
                 Su consola de administración y cuenta de GSE.
             </p>
-
+            <hr class="solid">
             <form role="form">
-                <div class="form-group">
+                <div class="form-group" style="margin-bottom: 30px;">
                     <!-- State Button -->
-                    <label for="state_id" class="control-label">1. Elige tu plan multianual</label>
+                    <div>
+                        <h4 style="margin-bottom: 30px;">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+                                    1. Elige tu plan multianual
+                                </font>
+                            </font>
+                        </h4>
+                    </div>
                     <select class="form-control" id="multi">
                         <option value="one">1 year, $260.00</option>
                         <option value="two">2 years, $254.60</option>
@@ -35,96 +41,100 @@
                     </select>
                 </div>
             </form>
+            <hr class="solid">
+            <div>
+                <h4 style="margin-bottom: 30px;">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">
+                            2. Ingrese su sitio web y la información del servidor
+                        </font>
+                    </font>
+                </h4>
+            </div>
 
             <div class="accordion" id="accordionExample">
                 <div class="card">
                     <div class="card-header" id="headingOne">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                No tengo mi CSR
-                            </button>
-                        </h2>
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            No tengo mi CSR
+                        </button>
+                    </h2>
                     </div>
-
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div class="card-body">
-                            <form role="form">
-                                <div class="form-group">
-                                    <!-- State Button -->
-                                    <label for="state_id" class="control-label">1. Choose your multi-year plan</label>
-                                    <select class="form-control" id="multi">
-                                        <option value="one">1 year, $260.00</option>
-                                        <option value="two">2 years, $254.60</option>
-                                        <option value="three">3 years, $53.60</option>
-                                        <option value="four">4 years, $80.40</option>
-                                        <option value="five">5 years, $107.20</option>
-                                        <option value="six">6 years, $134.00</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>2. Ingrese su sitio web y la información del servidor</label>
-                                    <label for="server" class="control-label">Detalles de la aplicación del servidor para el host en el que instala el certificado</label>
-                                    <select class="form-control" id="server">
-                                        <option value="apa">Apache</option>
-                                        <option value="nginx">NGINX</option>
-                                        <option value="iss">Microsoft IIS 10</option>
-                                        <option value="tomcat">Tomcat</option>
-                                        <option value="other">Other/I don't know</option>
-                                    </select>
-                                    <label for="email">
-                                        URL estándar o comodín adicionales para proteger con nombres alternativos de sujeto (SAN) (opcional)
-                                        Separe las SAN con comas o saltos de línea
-                                    </label>
-                                    <textarea class="form-control" id="message" name="message" placeholder=" " rows="4"></textarea>
-                                </div>
-                            </form>
-                        </div>
+                    <div class="card-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="server" class="control-label"><b>Detalles de la aplicación del servidor para el host en el que instala el certificado</b></label>
+                                <select class="form-control" id="server">
+                                    <option value="apa">Apache</option>
+                                    <option value="nginx">NGINX</option>
+                                    <option value="iss">Microsoft IIS 10</option>
+                                    <option value="tomcat">Tomcat</option>
+                                    <option value="other">Other/I don't know</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">
+                                    <b>La URL de su sitio web principal (www.mydomain.com) o dominio comodín (*.mydomain.com)</b>
+                                </label>
+                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="www.mydomain.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">
+                                    <b>URL estándar o comodín adicionales para proteger con nombres alternativos de asunto (SAN) (opcional)</b>
+                                </label>
+                                <small id="emailHelp" class="form-text text-muted">Separe los SAN con comas o saltos de línea</small>
+                                <textarea class="form-control" id="message" name="message" placeholder=" " rows="4"></textarea>
+                            </div>
+                        </form>
+                    </div>
                     </div>
                 </div>
-                
                 <div class="card">
                     <div class="card-header" id="headingTwo">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Tengo mi CSR
-                            </button>
-                        </h2>
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Tengo mi CSR
+                        </button>
+                    </h2>
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                        <div class="card-body">
-                            <form role="form">
-                                <div class="form-group">
-                                    <!-- State Button -->
-                                    <div class="form-group">
-                                        <label for="ejemplo_archivo_1">Añade tu CSR</label>
-                                        <input type="file" id="ejemplo_archivo_1">
-                                        <p class="help-block">¿Necesitas ayuda con tu CSR?</p>
-                                    </div>
-                                </div>
+                    <div class="card-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="ejemplo_archivo_1">Añade tu CSR</label>
+                                <input type="file" name="archivosubido" id="ejemplo_archivo_1">
+                                <p class="help-block">¿Necesitas ayuda con tu CSR?</p>
+                            </div>
 
-                                <div class="form-group">
-                                    <label>Ingrese su sitio web y la información del servidor</label>
-                                    <label for="server" class="control-label">Detalles de la aplicación del servidor para el host en el que instala el certificado</label>
-                                    <select class="form-control" id="server">
-                                        <option value="apa">Apache</option>
-                                        <option value="nginx">NGINX</option>
-                                        <option value="iss">Microsoft IIS 10</option>
-                                        <option value="tomcat">Tomcat</option>
-                                        <option value="other">Other/I don't know</option>
-                                    </select>
-                                    <label for="email">
-                                        URL estándar o comodín adicionales para proteger con nombres alternativos de sujeto (SAN) (opcional)
-                                        Separe las SAN con comas o saltos de línea
-                                    </label>
-                                    <textarea class="form-control" id="message" name="message" placeholder=" " rows="4"></textarea>
-                                </div>
-                            </form>
-                        </div>
+                            <div class="form-group">
+                                <label>Ingrese su sitio web y la información del servidor</label>
+                                <label for="server" class="control-label">Detalles de la aplicación del servidor para el host en el que instala el certificado</label>
+                                <select class="form-control" id="server">
+                                    <option value="apa">Apache</option>
+                                    <option value="nginx">NGINX</option>
+                                    <option value="iss">Microsoft IIS 10</option>
+                                    <option value="tomcat">Tomcat</option>
+                                    <option value="other">Other/I don't know</option>
+                                </select>
+                                <label for="email">
+                                    URL estándar o comodín adicionales para proteger con nombres alternativos de sujeto (SAN) (opcional)
+                                    Separe las SAN con comas o saltos de línea
+                                </label>
+                                <textarea class="form-control" id="message" name="message" placeholder=" " rows="4"></textarea>
+                            </div>
+                        </form>
+                    </div>
                     </div>
                 </div>
             </div>
-            <a href="#" class="btn btn-primary">Continue</a>
+        </div>
+        <div style="border-top: 30px; margin-left: 20px;">
+            <a type="button" class="btn btn-primary" asp-area="" asp-controller="Certificate" asp-action="AddDetailsCertificate">
+                Continuar
+            </a>
         </div>
     </body>
 </html>
+
