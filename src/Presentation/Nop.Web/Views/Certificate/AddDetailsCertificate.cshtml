@@ -3,67 +3,468 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<partial name="_CertificateTop"/>
+<partial name="_CertificateTop" />
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <form>
-            <div class="form-group">
-                <h3 class="sub-step-headline" style="margin-top: 20px;">
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">1. Cree su cuenta</font>
-                    </font>
-                </h3>
-                <div class="container" style="text-align: center;">
-                    <font style="vertical-align: inherit;">
-                        <a type="submit" href="http://localhost:5000/login?returnUrl=%2FCertificate%2FAddDetailsCertificate" class="btn btn-link"  target="_blank">
-                            Cree su cuenta o inicie sesion
-                        </a>
-                    </font>
-                </div>
-                <hr class="solid">
 
+<div class="modal fade" id="contact-modal" tabindex="-1" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);" aria-hidden="true" role="dialog" aria-labelledby="contactModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="label_organization-modal">
+                    Agregar contacto
+                </h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <i class="far fa-times-circle"></i>
+                </button>
             </div>
-            <div class="form-group">
-                <h3 class="sub-step-headline" style="margin-top: 20px;">
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">2. Elija la organización a la que pertenece el certificado</font>
-                    </font>
-                </h3>
-                <div>
-                    <p class="card-text">
-                        La información precisa da como resultado una emisión más rápida. 
-                        Asegúrese de que los detalles de su organización, incluida la ortografía y la puntuación, sean correctos.
-                    </p>
-                </div>
-                <partial name="_ModalOrganization"></partial>
-                <hr class="solid">
+            <div class="modal-body">
+                <form id="contact-form" accept-charset="UTF-8" class="needs-validation" novalidate>
+                    <input type="hidden" name="_token" value="ecwjuPNgEocZ9Dadqk4nSeRxCZk92fjx8ZECTXR8">
+                    <div id="new_org" style="" class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <h4>Informacion de contacto</h4>
+                                <div class="col-sm-6">
+                                    <div class="form-group form-group-md">
+                                        <label class="form-label" for="contacto_nombre">
+                                            Nombre
+                                        </label>
+                                        <input type="text" class="form-control required" id="contacto_nombre" name="contacto_nombre" value="" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group form-group-md">
+                                        <label class="form-label" for="contacto_apellido">
+                                            Apellido
+                                        </label>
+                                        <input type="text" class="form-control required" id="contacto_apellido" name="contacto_apellido" value="" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <label class="form-label" for="email">
+                                        Correo electronico
+                                    </label>
+                                    <input type="text" class="form-control" id="email" aria-describedby="emailHelp">
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group form-group-md">
+                                        <label class="form-label" for="trabajo">
+                                            Titulo de trabajo (opcional)
+                                        </label>
+                                        <input type="text" class="form-control required" id="trabajo" name="trabajo" value="" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="telefono">
+                                        Numero de telefono
+                                    </label>
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <input type="text" class="form-control" id="codigo_contacto" name="codigo_contacto" value="" placeholder="+1">
+                                        </div>
+                                        <div class="col-10">
+                                            <input type="text" class="form-control required" id="contacto_tel" name="contacto_tel" value="" required>
+                                            <div class="invalid-feedback">
+                                                Ingrese un numero de telefono valido
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="mt-60" />
+                                <h4 class="mt-60">A quién debemos contactar para:</h4>
+                                <ul>
+                                    <li>Informacion de la organizacion</li>
+                                    <li>Verificar pedido</li>
+                                    <li>Emision y renovacion de certificados</li>
+                                    <li>Renovación del plan de pago multianual</li>
+                                </ul>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="contact-preference" id="primary-                                             contact" value="primary" data-toggle="collapse" data-target="#collapse-other-                                               contact" checked>
+                                    <label class="form-check-label" for="gridRadios1">
+                                        Contacto principal: ingrese el contacto arriba
+                                    </label>
+                                </div>
+                                <div class="form-check mt-1">
+                                    <input class="form-check-input" type="radio" name="contact-preference" id="other-contact" value="other" data-toggle="collapse" data-target="#collapse-other-contact">
+                                    <label class="form-check-label" for="gridRadios2">
+                                        Alguien más en mi organización
+                                    </label>
+                                </div>
+                                <div id="collapse-other-contact" class="collapse my-5 pl-4">
+                                    <h4>Solicitar informacion</h4>
+                                    <div class="row mb-2">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-group-md">
+                                                <label class="form-label" for="contacto_nombre">
+                                                    Nombre
+                                                </label>
+                                                <input type="text" class="form-control required" id="contacto_nombre" name="contacto_nombre" value="" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-group-md">
+                                                <label class="form-label" for="contacto_apellido">
+                                                    Apellido
+                                                </label>
+                                                <input type="text" class="form-control required" id="contacto_apellido" name="contacto_apellido" value="" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <label class="form-label" for="email">
+                                                Correo electronico
+                                            </label>
+                                            <input type="text" class="form-control" id="email" aria-describedby="emailHelp">
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-group-md">
+                                                <label class="form-label" for="trabajo">
+                                                    Titulo de trabajo (opcional)
+                                                </label>
+                                                <input type="text" class="form-control required" id="trabajo" name="trabajo" value="" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="telefono">
+                                                Numero de telefono
+                                            </label>
+                                            <div class="row">
+                                                <div class="col-2">
+                                                    <input type="text" class="form-control" id="codigo_contacto" name="codigo_contacto" value="" placeholder="+1">
+                                                </div>
+                                                <div class="col-10">
+                                                    <input type="text" class="form-control required" id="contacto_tel" name="contacto_tel" value="" required>
+                                                </div>
+                                            </div>
+                                        </div>
 
+
+                                    </div>
+                                </div>
+                                <br />
+
+                                <div class="form-group py-60">
+                                    <button data-cancel="true" data-dismiss="modal" type="button" class="btn btn-                                                   secondary mr-2">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary" id="add-contact-btn">Agregar contacto</                                           button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- .modal-body -->
+        </div><!-- .modal-content -->
+    </div><!-- .modal-dialog -->
+</div>
+
+<!-- MODAL 2 -->
+
+<div class="modal fade" id="organization-modal" tabindex="-1" data-backdrop="false" style="background-color: rgba(0, 0, 0, 0.5);" aria-hidden="true" role="dialog" aria-labelledby="contactModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="label_organization-modal">
+                    Agregar organizacion
+                </h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <i class="far fa-times-circle"></i>
+                </button>
             </div>
-            <div class="form-group">
-                <h3 class="sub-step-headline" style="margin-top: 20px;">
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">3. Elija el contacto principal para este pedido</font>
-                    </font>
-                </h3>
-                <partial name="_ModalContact"></partial>
-                <hr class="solid">
+            <div class="modal-body">
+                <div class="col-sm-10 m-0">
+                    <div class="d-flex border border-warning rounded p-3 pr-0 my-30">
+                        <div class="p-1">
+                            Recuerde: Asegúrese de que todos los detalles, incluida la ortografía y la puntuación, sean                                  correctos.
+                        </div>
+                    </div>
+                </div>
+                <form id="contact-form" accept-charset="UTF-8" class="needs-validation" novalidate>
+                    <input type="hidden" name="_token" value="ecwjuPNgEocZ9Dadqk4nSeRxCZk92fjx8ZECTXR8">
+                    <div id="new_org" style="" class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-10">
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <label class="form-label" for="nombre_organizacion">
+                                            Nombre de la empresa
+                                        </label>
+                                        <input type="text" class="form-control required" id="nombre_organizacion"                                                       name="nombre_organizacion" value="" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label"  for="pais">Pais donde se encuentra la empresa</label>
+                                    <select class="form-control required" id="pais" name="pais" required>
+                                        <option selected>Seleccione el pais</option>
+                                        <option value="AF">Afganistán</option>
+                                        <option value="AL">Albania</option>
+                                        <option value="DE">Alemania</option>
+                                        <option value="AD">Andorra</option>
+                                        <option value="AO">Angola</option>
+                                        <option value="AI">Anguilla</option>
+                                        <option value="AQ">Antártida</option>
+                                        <option value="AG">Antigua y Barbuda</option>
+                                        <option value="AN">Antillas Holandesas</option>
+                                        <option value="SA">Arabia Saudí</option>
+                                        <option value="DZ">Argelia</option>
+                                        <option value="AR">Argentina</option>
+                                        <option value="AM">Armenia</option>
+                                        <option value="AW">Aruba</option>
+                                        <option value="AU">Australia</option>
+                                        <option value="AT">Austria</option>
+                                        <option value="AZ">Azerbaiyán</option>
+                                        <option value="BS">Bahamas</option>
+                                        <option value="BH">Bahrein</option>
+                                        <option value="BD">Bangladesh</option>
+                                        <option value="BB">Barbados</option>
+                                        <option value="BE">Bélgica</option>
+                                        <option value="BZ">Belice</option>
+                                        <option value="BJ">Benin</option>
+                                        <option value="BM">Bermudas</option>
+                                        <option value="BY">Bielorrusia</option>
+                                        <option value="MM">Birmania</option>
+                                        <option value="BO">Bolivia</option>
+                                        <option value="BA">Bosnia y Herzegovina</option>
+                                        <option value="BW">Botswana</option>
+                                        <option value="BR">Brasil</option>
+                                        <option value="BN">Brunei</option>
+                                        <option value="BG">Bulgaria</option>
+                                        <option value="BF">Burkina Faso</option>
+                                        <option value="BI">Burundi</option>
+                                        <option value="BT">Bután</option>
+                                        <option value="CV">Cabo Verde</option>
+                                        <option value="KH">Camboya</option>
+                                        <option value="CM">Camerún</option>
+                                        <option value="CA">Canadá</option>
+                                        <option value="TD">Chad</option>
+                                        <option value="CL">Chile</option>
+                                        <option value="CN">China</option>
+                                        <option value="CY">Chipre</option>
+                                        <option value="VA">Ciudad del Vaticano (Santa Sede)</option>
+                                        <option value="CO">Colombia</option>
+                                        <option value="KM">Comores</option>
+                                        <option value="CG">Congo</option>
+                                        <option value="CD">Congo, República Democrática del</option>
+                                        <option value="KR">Corea</option>
+                                        <option value="KP">Corea del Norte</option>
+                                        <option value="CI">Costa de Marfíl</option>
+                                        <option value="CR">Costa Rica</option>
+                                        <option value="HR">Croacia (Hrvatska)</option>
+                                        <option value="CU">Cuba</option>
+                                        <option value="DK">Dinamarca</option>
+                                        <option value="DJ">Djibouti</option>
+                                        <option value="DM">Dominica</option>
+                                        <option value="EC">Ecuador</option>
+                                        <option value="EG">Egipto</option>
+                                        <option value="SV">El Salvador</option>
+                                        <option value="AE">Emiratos Árabes Unidos</option>
+                                        <option value="ER">Eritrea</option>
+                                        <option value="SI">Eslovenia</option>
+                                        <option value="ES">España</option>
+                                        <option value="US">Estados Unidos</option>
+                                        <option value="EE">Estonia</option>
+                                        <option value="ET">Etiopía</option>
+                                        <option value="FJ">Fiji</option>
+                                        <option value="PH">Filipinas</option>
+                                        <option value="FI">Finlandia</option>
+                                        <option value="FR">Francia</option>
+                                        <option value="GA">Gabón</option>
+                                        <option value="GM">Gambia</option>
+                                        <option value="GE">Georgia</option>
+                                        <option value="GH">Ghana</option>
+                                        <option value="GI">Gibraltar</option>
+                                        <option value="GD">Granada</option>
+                                        <option value="GR">Grecia</option>
+                                        <option value="GL">Groenlandia</option>
+                                        <option value="GP">Guadalupe</option>
+                                        <option value="GU">Guam</option>
+                                        <option value="GT">Guatemala</option>
+                                        <option value="GY">Guayana</option>
+                                        <option value="GF">Guayana Francesa</option>
+                                        <option value="GN">Guinea</option>
+                                        <option value="GQ">Guinea Ecuatorial</option>
+                                        <option value="GW">Guinea-Bissau</option>
+                                        <option value="HT">Haití</option>
+                                        <option value="HN">Honduras</option>
+                                        <option value="HU">Hungría</option>
+                                        <option value="IN">India</option>
+                                        <option value="ID">Indonesia</option>
+                                        <option value="IQ">Irak</option>
+                                        <option value="IR">Irán</option>
+                                        <option value="IE">Irlanda</option>
+                                        <option value="BV">Isla Bouvet</option>
+                                        <option value="CX">Isla de Christmas</option>
+                                        <option value="IS">Islandia</option>
+                                        <option value="KY">Islas Caimán</option>
+                                    </select>
+                                </div>
+                                <div class="row pb-2">
+                                    <div class="col-sm-6 pr-1">
+                                        <div class="form-group form-group-md">
+                                            <label class="form-label"for="direccion">
+                                                Direccion
+                                            </label>
+                                            <input type="text" class="form-control required" id="direccion" name="direccion"
+                                                value="" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group form-group-md">
+                                            <label class="form-label" for="direccion2">
+                                                Direccion 2
+                                            </label>
+                                            <input type="text" class="form-control" id="direccion2"name="direccion2"
+                                              value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-5 pr-1">
+                                        <div class="city-container form-group form-group-md">
+                                            <label class="form-label" for="ciudad">
+                                                Ciudad
+                                            </label>
+                                            <input type="text" class="form-control required" id="ciudad"
+                                             value="" name="ciudad" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5 pr-1">
+                                        <div class="city-container form-group form-group-md">
+                                            <label class="form-label" for="provincia">
+                                                Provincia
+                                            </label>
+                                            <input type="text" class="form-control required" id="provincia"
+                                              value="" name="provincia" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="zip-container form-group form-group-md">
+                                            <label class="form-label" for="codigo">Codigo postal</label>
+                                            <input type="text" class="form-control required" id="codigo" name="codigo"
+                                              value="" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 my-4">
+                                    <hr class="my-5" />
+                                </div>
+                                <div class="col-9">
+                                    <h5 class="mb-4">Más información para procesar su pedido más rápido</h5>
+                                    <div class="form-group">
+                                        <label class="form-label" for="telefono">
+                                            Numero de telefono
+                                        </label>
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <input type="text" class="form-control" id="codigo_contacto"                                                                   name="codigo_contacto" value="" placeholder="+1">
+                                            </div>
+                                            <div class="col-10">
+                                                <input type="text" class="form-control required" id="contacto_tel"                                                            name="contacto_tel" value="" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group py-60">
+                                    <button data-cancel="true" data-dismiss="modal" type="button" class="btn btn-                                                   secondary mr-2">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary" id="add-contact-btn">Agregar contacto</                                           button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div><!-- .modal-body -->
+        </div><!-- .modal-content -->
+    </div><!-- .modal-dialog -->
+</div>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <form>
+        <div class="form-group">
+            <h3 class="sub-step-headline" style="margin-top: 20px;">
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">1. Cree su cuenta</font>
+                </font>
+            </h3>
+            <div class="container" style="text-align: center;">
+                <font style="vertical-align: inherit;">
+                    <a type="submit" href="http://localhost:5000/login?returnUrl=%2FCertificate%2FAddDetailsCertificate" class="btn btn-link" target="_blank">
+                        Cree su cuenta o inicie sesion
+                    </a>
+                </font>
             </div>
-            <div class="form-group form-check" style="margin-top: 30px;">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">He leido y aceptado el <a href="#" >Acuerdo de servicios</a> y
-                 <a href="#">la Politica de Privacidad de GSE</a></label>
+            <hr class="solid">
+
+        </div>
+        <div class="form-group">
+            <h3 class="sub-step-headline" style="margin-top: 20px;">
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">2. Elija la organización a la que pertenece el certificado</font>
+                </font>
+            </h3>
+            <div>
+                <p class="card-text">
+                    La información precisa da como resultado una emisión más rápida.
+                    Asegúrese de que los detalles de su organización, incluida la ortografía y la puntuación, sean correctos.
+                </p>
             </div>
-            <a type="button" class="btn btn-secondary" asp-area="" asp-controller="Certificate" asp-action="ConfigureCertificate">Atras</a>
-            <a type="button" class="btn btn-primary" asp-area="" asp-controller="Certificate" asp-action="CertificateVerification">Continuar</a>
-        </form>
-    </body>
+            <div class="sub-step-detail sub-step-final">
+                <div class="card-group">
+                    <div id="add-contact-card" class="card add-card shadow d-flex">
+                        <div class="text-center">
+                            <button type="button" class="btn btn-link pt-4" data-toggle="modal"
+                                data-target="#organization-modal">
+                                <img src=" https://order.digicert.com/assets/images/Add_Org_2.png"
+                                 alt="add organization icon" /><br />
+                                 <p>Agregar contacto</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+        <div class="form-group">
+            <h3 class="sub-step-headline" style="margin-top: 20px;">
+                <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">3. Elija el contacto principal para este pedido</font>
+                </font>
+            </h3>
+            <div class="sub-step-detail sub-step-final">
+                <div class="card-group">
+                    <div id="add-contact-card" class="card add-card shadow d-flex">
+                        <div class="text-center">
+                            <button type="button" class="btn btn-link pt-4" data-toggle="modal"
+                                data-target="#contact-modal">
+                                <img src=" https://order.digicert.com/assets/images/Add_Contact_2.png"
+                                 alt="add organization icon" /><br />
+                                 <p>Agregar contacto</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="form-group form-check" style="margin-top: 30px;">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">
+                He leido y aceptado el <a href="#">Acuerdo de servicios</a> y
+                <a href="#">la Politica de Privacidad de GSE</a>
+            </label>
+        </div>
+        <a type="button" class="btn btn-secondary" asp-area="" asp-controller="Certificate" asp-action="ConfigureCertificate">Atras</a>
+        <a type="button" class="btn btn-primary" asp-area="" asp-controller="Certificate" asp-action="CertificateVerification">Continuar</a>
+    </form>
+</body>
 </html>
-
-
-
